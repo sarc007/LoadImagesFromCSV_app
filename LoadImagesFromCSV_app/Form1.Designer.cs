@@ -32,37 +32,37 @@
             this.dest_folder = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.txtbox_SourceFolderSelection = new System.Windows.Forms.TextBox();
             this.btnSelectSourceFolder = new System.Windows.Forms.Button();
+            this.txtbox_DestinationSelectedFolder = new System.Windows.Forms.TextBox();
             this.btnSelectDestinationFolder = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.btn_start_extracting_img_from_csv = new System.Windows.Forms.Button();
             this.listBox_csv = new System.Windows.Forms.ListBox();
+            this.progressBarControl2 = new DevExpress.XtraEditors.ProgressBarControl();
             this.listBox_img = new System.Windows.Forms.ListBox();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.txtbox_SourceFolderSelection = new System.Windows.Forms.TextBox();
-            this.txtbox_DestinationSelectedFolder = new System.Windows.Forms.TextBox();
-            this.progressBarControl2 = new DevExpress.XtraEditors.ProgressBarControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,25 +95,6 @@
             this.splitContainer1.SplitterDistance = 68;
             this.splitContainer1.TabIndex = 0;
             // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer4);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.progressBarControl2);
-            this.splitContainer2.Panel2.Controls.Add(this.listBox_img);
-            this.splitContainer2.Size = new System.Drawing.Size(792, 469);
-            this.splitContainer2.SplitterDistance = 228;
-            this.splitContainer2.TabIndex = 0;
-            // 
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -137,6 +118,15 @@
             this.splitContainer3.SplitterDistance = 361;
             this.splitContainer3.TabIndex = 0;
             // 
+            // txtbox_SourceFolderSelection
+            // 
+            this.txtbox_SourceFolderSelection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbox_SourceFolderSelection.Location = new System.Drawing.Point(2, 2);
+            this.txtbox_SourceFolderSelection.Name = "txtbox_SourceFolderSelection";
+            this.txtbox_SourceFolderSelection.Size = new System.Drawing.Size(357, 20);
+            this.txtbox_SourceFolderSelection.TabIndex = 4;
+            this.txtbox_SourceFolderSelection.Text = "c:\\test001";
+            // 
             // btnSelectSourceFolder
             // 
             this.btnSelectSourceFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -147,6 +137,16 @@
             this.btnSelectSourceFolder.Text = "Select Source Folder";
             this.btnSelectSourceFolder.UseVisualStyleBackColor = true;
             this.btnSelectSourceFolder.Click += new System.EventHandler(this.btnSelectSourceFolder_Click);
+            // 
+            // txtbox_DestinationSelectedFolder
+            // 
+            this.txtbox_DestinationSelectedFolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtbox_DestinationSelectedFolder.Enabled = false;
+            this.txtbox_DestinationSelectedFolder.Location = new System.Drawing.Point(2, 2);
+            this.txtbox_DestinationSelectedFolder.Name = "txtbox_DestinationSelectedFolder";
+            this.txtbox_DestinationSelectedFolder.Size = new System.Drawing.Size(423, 20);
+            this.txtbox_DestinationSelectedFolder.TabIndex = 2;
+            this.txtbox_DestinationSelectedFolder.Text = "c:\\img_saved";
             // 
             // btnSelectDestinationFolder
             // 
@@ -159,6 +159,25 @@
             this.btnSelectDestinationFolder.Text = "Select Destination Folder";
             this.btnSelectDestinationFolder.UseVisualStyleBackColor = true;
             this.btnSelectDestinationFolder.Click += new System.EventHandler(this.btnSelectDestinationFolder_Click);
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer4);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.progressBarControl2);
+            this.splitContainer2.Panel2.Controls.Add(this.listBox_img);
+            this.splitContainer2.Size = new System.Drawing.Size(792, 469);
+            this.splitContainer2.SplitterDistance = 228;
+            this.splitContainer2.TabIndex = 0;
             // 
             // splitContainer4
             // 
@@ -201,6 +220,17 @@
             this.listBox_csv.Size = new System.Drawing.Size(792, 194);
             this.listBox_csv.TabIndex = 0;
             // 
+            // progressBarControl2
+            // 
+            this.progressBarControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBarControl2.Location = new System.Drawing.Point(0, 173);
+            this.progressBarControl2.Name = "progressBarControl2";
+            this.progressBarControl2.Properties.ShowTitle = true;
+            this.progressBarControl2.Properties.Step = 1;
+            this.progressBarControl2.ShowProgressInTaskBar = true;
+            this.progressBarControl2.Size = new System.Drawing.Size(792, 34);
+            this.progressBarControl2.TabIndex = 1;
+            // 
             // listBox_img
             // 
             this.listBox_img.Dock = System.Windows.Forms.DockStyle.Top;
@@ -226,36 +256,6 @@
             this.progressBarControl1.Size = new System.Drawing.Size(800, 28);
             this.progressBarControl1.TabIndex = 2;
             // 
-            // txtbox_SourceFolderSelection
-            // 
-            this.txtbox_SourceFolderSelection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbox_SourceFolderSelection.Location = new System.Drawing.Point(2, 2);
-            this.txtbox_SourceFolderSelection.Name = "txtbox_SourceFolderSelection";
-            this.txtbox_SourceFolderSelection.Size = new System.Drawing.Size(357, 20);
-            this.txtbox_SourceFolderSelection.TabIndex = 4;
-            this.txtbox_SourceFolderSelection.Text = "c:\\test001";
-            // 
-            // txtbox_DestinationSelectedFolder
-            // 
-            this.txtbox_DestinationSelectedFolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbox_DestinationSelectedFolder.Enabled = false;
-            this.txtbox_DestinationSelectedFolder.Location = new System.Drawing.Point(2, 2);
-            this.txtbox_DestinationSelectedFolder.Name = "txtbox_DestinationSelectedFolder";
-            this.txtbox_DestinationSelectedFolder.Size = new System.Drawing.Size(423, 20);
-            this.txtbox_DestinationSelectedFolder.TabIndex = 2;
-            this.txtbox_DestinationSelectedFolder.Text = "c:\\img_saved";
-            // 
-            // progressBarControl2
-            // 
-            this.progressBarControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBarControl2.Location = new System.Drawing.Point(0, 173);
-            this.progressBarControl2.Name = "progressBarControl2";
-            this.progressBarControl2.Properties.ShowTitle = true;
-            this.progressBarControl2.Properties.Step = 1;
-            this.progressBarControl2.ShowProgressInTaskBar = true;
-            this.progressBarControl2.Size = new System.Drawing.Size(792, 34);
-            this.progressBarControl2.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,22 +270,22 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

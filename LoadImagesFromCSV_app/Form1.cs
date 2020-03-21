@@ -23,12 +23,17 @@ namespace LoadImagesFromCSV_app
         private void btnSelectSourceFolder_Click(object sender, EventArgs e)
         {
             src_folder.ShowDialog();
-            if (src_folder.SelectedPath.Length > 0)
+            if (src_folder.SelectedPath.Length > 0 || Directory.Exists(txtbox_SourceFolderSelection.Text))
             {
-                
-                string[]  csv_file_list = Directory.GetFiles(src_folder.SelectedPath, "*.csv");
+                string[] csv_file_list;
+                if (Directory.Exists(txtbox_SourceFolderSelection.Text))
+                    csv_file_list =  Directory.GetFiles(txtbox_SourceFolderSelection.Text, "*.csv");
+                else
+                    csv_file_list = Directory.GetFiles(src_folder.SelectedPath, "*.csv");
+
                 if (csv_file_list.Length > 0) {
-                    txtbox_SourceFolderSelection.Text = src_folder.SelectedPath.ToString();
+                    if (! Directory.Exists(txtbox_SourceFolderSelection.Text))
+                        txtbox_SourceFolderSelection.Text = src_folder.SelectedPath.ToString();
                     listBox_csv.Items.Clear();
                     progressBarControl2.Properties.Maximum = csv_file_list.Length;
                     progressBarControl2.Position = 0;
@@ -63,11 +68,12 @@ namespace LoadImagesFromCSV_app
         private void btnSelectDestinationFolder_Click(object sender, EventArgs e)
         {
             dest_folder.ShowDialog();
-            if (dest_folder.SelectedPath.Length > 0)
+
+            if (dest_folder.SelectedPath.Length > 0 || Directory.Exists(txtbox_DestinationSelectedFolder.Text))
             {
-                txtbox_DestinationSelectedFolder.Text = dest_folder.SelectedPath.ToString();
+                if (! Directory.Exists(txtbox_DestinationSelectedFolder.Text))
+                    txtbox_DestinationSelectedFolder.Text = dest_folder.SelectedPath.ToString();
                 txtbox_DestinationSelectedFolder.Enabled = false;
-                
                 btnSelectSourceFolder.Enabled = false;
                 btnSelectDestinationFolder.Enabled = false;
                 btn_start_extracting_img_from_csv.Enabled = true;
@@ -86,7 +92,6 @@ namespace LoadImagesFromCSV_app
         private void btn_start_extracting_img_from_csv_Click(object sender, EventArgs e)
         {
             btn_start_extracting_img_from_csv.Enabled = false;
-
             string hexImgData;
             progressBarControl2.Properties.Maximum = listBox_csv.Items.Count+1;
             progressBarControl2.Position = 0;
@@ -122,7 +127,7 @@ namespace LoadImagesFromCSV_app
                                 {
                                     patternImage = new Bitmap(ms);
                                     // File.WriteAllText(i2Path, "empty");
-                                    savedfilename = dest_folder.SelectedPath + "\\veh_img_" + string.Format(String.Format("{0,10:0000000000}", j_counter)) + ".jpg";
+                                    savedfilename = txtbox_DestinationSelectedFolder.Text.Trim()+ "\\veh_img_" + string.Format(String.Format("{0,10:0000000000}", j_counter)) + ".jpg";
                                     patternImage.Save(savedfilename, ImageFormat.Jpeg);
                                 }
                                 listBox_img.Items.Add(savedfilename);
@@ -143,7 +148,7 @@ namespace LoadImagesFromCSV_app
 
                                     patternImage = new Bitmap(ms);
                                     // File.WriteAllText(i2Path, "empty");
-                                    savedfilename = dest_folder.SelectedPath + "\\lpn_img_" + string.Format(String.Format("{0,10:0000000000}", i_counter)) + ".jpg";
+                                    savedfilename = txtbox_DestinationSelectedFolder.Text.Trim() + "\\lpn_img_" + string.Format(String.Format("{0,10:0000000000}", i_counter)) + ".jpg";
                                     patternImage.Save(savedfilename, ImageFormat.Jpeg);
                                 }
                                 listBox_img.Items.Add(savedfilename);
